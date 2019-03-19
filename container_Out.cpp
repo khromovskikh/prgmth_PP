@@ -4,6 +4,7 @@ using namespace std;
 namespace simple_numbers {
 	// Сигнатуры требуемых внешних функций
 	void Out(number &num, ofstream &ofst);
+	float number_ToFloat(number &num);
 	// Вывод содержимого контейнера в указанный поток
 	void Out(container **begin, ofstream &ofst) {
 		container *p = *begin;
@@ -28,6 +29,7 @@ namespace simple_numbers {
 			{
 				ofst << i << ": ";
 				Out(*(p)->num, ofst);     /////// p->a  разименовываю и отправляю значение переменной 
+				ofst << "float form: " << number_ToFloat(*(p)->num) << endl;
 				p = p->next;
 				i++;
 			} while (p != *begin);
