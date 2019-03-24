@@ -4,12 +4,15 @@
 #include "complex_atd.h"
 #include "rational_atd.h"
 #include "pol_coor_atd.h"
+#include <string>
+
 namespace simple_numbers {
 	// структура, обобщающая все имеющиеся виды чисел
 	struct number {
 		// значения ключей для каждого из чисел
 		enum key { СOMPLEX, RATIONAL, POL_COOR };
 		key k; // ключ
+		std::string ed_izm;
 			   // используемые альтернативы
 		union { // используем включение
 			complex c;

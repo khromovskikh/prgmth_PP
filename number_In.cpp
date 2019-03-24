@@ -12,6 +12,7 @@ namespace simple_numbers {
 		number *num;
 		int k;
 		ifst >> k;
+
 		switch (k) {
 		case 1:
 			num = new number;

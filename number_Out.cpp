@@ -24,5 +24,6 @@ namespace simple_numbers {
 		default:
 			ofst << "Incorrect number!" << endl;
 		}
+		ofst << "measure = " << n.ed_izm << endl;
 	}
 } // end simple_numbers namespace

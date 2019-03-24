@@ -23,7 +23,11 @@ int main(int argc, char* argv[]) {
 
 	ifstream ifst(argv[1]);//открытие файлов
 	ofstream ofst(argv[2]);
-	char symb;
+
+	//ifstream ifst("C:\\in.txt");//открытие файлов
+	//ofstream ofst("C:\\out.txt");
+	/*char symb;
+
 	while (!ifst.eof())
 	{
 		ifst >> symb;
@@ -34,7 +38,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	ifst.close();
-	ifst.open(argv[1]);
+	ifst.open(argv[1]);*/
 
 	cout << "Start" << endl;
 	container* begin;
