@@ -6,6 +6,7 @@ namespace simple_numbers {
 	void Out(complex &c, ofstream &ofst);
 	void Out(rational &r, ofstream &ofst);
 	float number_ToFloat(number &num);
+	void Out(pol_coor &pc, ofstream &ofst);
 	// Вывод параметров текущего числа в поток
 	void Out(number &n, ofstream &ofst) {//почему в ооп не будет аналога?
 		switch (n.k) {
@@ -16,6 +17,9 @@ namespace simple_numbers {
 		case number::key::RATIONAL:
 			Out(n.r, ofst);
 			ofst << "float form: " << number_ToFloat(n) << endl;
+			break;
+		case number::key::POL_COOR:
+			Out(n.pc, ofst);
 			break;
 		default:
 			ofst << "Incorrect number!" << endl;
