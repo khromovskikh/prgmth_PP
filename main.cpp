@@ -8,9 +8,13 @@ namespace simple_numbers {
 	void Clear(container **begin);
 	void In(container **begin, ifstream &ifst);
 	void Out(container **begin, ofstream &ofst);
+	container* Sort(container **con);
 }
 using namespace simple_numbers;//различие????
 int main(int argc, char* argv[]) {
+	//argc = 3;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//argv[1] = "C:\\in.txt";
+	//argv[2] = "C:\\out.txt";
 	if (argc != 3) {
 		cout << "incorrect command line! "
 			"Waited: command infile outfile" << endl;
@@ -19,8 +23,6 @@ int main(int argc, char* argv[]) {
 
 	ifstream ifst(argv[1]);//открытие файлов
 	ofstream ofst(argv[2]);
-	//ifstream ifst("C:\\in.txt");//открытие файлов
-	//ofstream ofst("C:\\out.txt");
 	char symb;
 	while (!ifst.eof())
 	{
@@ -40,6 +42,9 @@ int main(int argc, char* argv[]) {
 	Init(&begin);
 	In(&begin, ifst);
 	ofst << "Filled container. " << endl;
+	Out(&begin, ofst);
+	begin = Sort(&begin);
+	ofst << "After sort." << endl;
 	Out(&begin, ofst);
 	Clear(&begin);
 	ofst << "Empty container. " << endl;
