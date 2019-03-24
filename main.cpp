@@ -9,6 +9,7 @@ namespace simple_numbers {
 	void In(container **begin, ifstream &ifst);
 	void Out(container **begin, ofstream &ofst);
 	container* Sort(container **con);
+	void OutComplex(container &con, ofstream &ofst);
 }
 using namespace simple_numbers;//различие????
 int main(int argc, char* argv[]) {
@@ -50,6 +51,7 @@ int main(int argc, char* argv[]) {
 	begin = Sort(&begin);
 	ofst << "After sort." << endl;
 	Out(&begin, ofst);
+	OutComplex(*begin, ofst);
 	Clear(&begin);
 	ofst << "Empty container. " << endl;
 	Out(&begin, ofst);
