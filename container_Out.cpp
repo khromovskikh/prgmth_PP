@@ -29,7 +29,7 @@ namespace simple_numbers {
 			{
 				ofst << i << ": ";
 				Out(*(p)->num, ofst);     /////// p->a  разименовываю и отправл€ю значение переменной 
-				ofst << "float form: " << number_ToFloat(*(p)->num) << endl;
+				//ofst << "float form: " << number_ToFloat(*(p)->num) << endl;
 				p = p->next;
 				i++;
 			} while (p != *begin);
