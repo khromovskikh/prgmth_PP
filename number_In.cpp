@@ -18,16 +18,19 @@ namespace simple_numbers {
 			num = new number;
 			num->k = number::key::ÑOMPLEX;
 			In(num->c, ifst);
+			ifst >> num->ed_izm;
 			return num;
 		case 2:
 			num = new number;
 			num->k = number::key::RATIONAL;
 			In(num->r, ifst);
+			ifst >> num->ed_izm;
 			return num;
 		case 3:
 			num = new number;
 			num->k = number::key::POL_COOR;
 			In(num->pc, ifst);
+			ifst >> num->ed_izm;
 			return num;
 		default:
 			return nullptr;

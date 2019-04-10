@@ -20,6 +20,7 @@ namespace simple_numbers {
 			break;
 		case number::key::POL_COOR:
 			Out(n.pc, ofst);
+			ofst << "float form: " << number_ToFloat(n) << endl;
 			break;
 		default:
 			ofst << "Incorrect number!" << endl;

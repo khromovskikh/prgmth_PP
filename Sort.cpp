@@ -2,9 +2,9 @@
 #include "container_atd.h"
 namespace simple_numbers {
 	// Сигнатуры требуемых функций
-	bool Compare(number *first, number *second);
+	bool Compare_n(number *first, number *second);
 	// Сортировка содержимого контейнера 
-	container* Sort(container **con)
+	container* Sort_c(container **con)
 	{
 	
 			container *head = *con;
@@ -12,7 +12,7 @@ namespace simple_numbers {
 			if (*con != nullptr){
 			do { //пока не конец входного списка
 				q = *con; *con = (*con)->next; //исключить очередной элемент
-				for (p = out, pr = nullptr; p != nullptr && Compare(q->num, p->num); pr = p, p = p->next);
+				for (p = out, pr = nullptr; p != nullptr && Compare_n(q->num, p->num); pr = p, p = p->next);
 				//ищем, куда включить очередной элемент 
 				if (pr == nullptr) 
 				{ 
