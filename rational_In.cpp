@@ -1,15 +1,14 @@
 #include <fstream>
 #include "rational_atd.h"
 using namespace std;
-namespace simple_numbers {
-	// ¬вод параметров дроби из потока
-	void In(rational &r, ifstream &ifst)
+namespace simple_numbers 
+{
+	void in(rational &r, ifstream &ifst)
 	{
-		float A, B;
-		ifst >> A >> B;
-		if (B == 0) B=1;
-
-		r.a = (int)A;
-		r.b = (int)B;
+		float chisl_float, znam_float;
+		ifst >> chisl_float >> znam_float;
+		if (znam_float == 0) znam_float=1;
+		r.chis = (int)chisl_float;
+		r.znam = (int)znam_float;
 	}
 } // end simple_numbers namespace

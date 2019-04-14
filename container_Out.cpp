@@ -1,38 +1,34 @@
 #include <fstream>
 #include "container_atd.h"
 using namespace std;
-namespace simple_numbers {
-	// —игнатуры требуемых внешних функций
-	void Out(number &num, ofstream &ofst);
-	float number_ToFloat(number &num);
-	// ¬ывод содержимого контейнера в указанный поток
-	void Out(container **begin, ofstream &ofst) {
-		container *p = *begin;
+namespace simple_numbers 
+{
+	void out(number &num, ofstream &ofst);
+	float number_to_float(number &num);
+	void out(container **begin, ofstream &ofst) 
+	{
+		container *cur = *begin;
 		int i = 1;
 		int  kol = 0;
-//		if ((*begin)->next != nullptr)
 		if (*begin != nullptr)
 		{
 			do
 			{
 				kol++;
-				p = p->next;
-			}while (p != *begin);
-			p = *begin;
+				cur = cur->next;
+			}while (cur != *begin);
+			cur = *begin;
 		}
-		ofst << "Container contains " << kol
-			<< " elements." << endl;
-//		if ((*begin)->next != nullptr)
+		ofst << "Container contains " << kol<< " elements." << endl;
 		if (*begin != nullptr)
 		{
 			do
 			{
 				ofst << i << ": ";
-				Out(*(p)->num, ofst);     /////// p->a  разименовываю и отправл€ю значение переменной 
-
-				p = p->next;
+				out(*(cur)->num, ofst);     /////// p->a  разименовываю и отправл€ю значение переменной 
+				cur = cur->next;
 				i++;
-			} while (p != *begin);
+			} while (cur != *begin);
 		}
 	}
 } // end simple_nubers namespace

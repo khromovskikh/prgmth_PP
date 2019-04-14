@@ -1,20 +1,18 @@
 #ifndef __number_atd__
 #define __number_atd__
-// Подключение необходимых типов данных
 #include "complex_atd.h"
 #include "rational_atd.h"
 #include "pol_coor_atd.h"
 #include <string>
-
-namespace simple_numbers {
-	// структура, обобщающая все имеющиеся виды чисел
-	struct number {
-		// значения ключей для каждого из чисел
+namespace simple_numbers 
+{
+	struct number 
+	{
 		enum key { СOMPLEX, RATIONAL, POL_COOR };
 		key k; // ключ
-		std::string ed_izm;
-			   // используемые альтернативы
-		union { // используем включение
+		std::string measure;
+		union
+		{
 			complex c;
 			rational r;
 			pol_coor pc;

@@ -1,29 +1,26 @@
 #include "container_atd.h"
 #include "number_atd.h"
 using namespace std;
-namespace simple_numbers {
-	// Инициализация контейнера
-	void Init(container **begin)
+namespace simple_numbers 
+{
+	void init(container **begin)
 	{
 		*begin = nullptr;
-
 	}
-	// Очистка контейнера от элементов
-	// (освобождение памяти)
-	void Clear(container **begin) {
+	void clear(container **begin) 
+	{
 		if (*begin == 0)
 			return;
-		container *p = *begin;
-		container *t;
-		
+		container *cur = *begin;
+		container *cur_next;
 		if (*begin != nullptr)
 		{
 			do
 			{
-				t = p;
-				p = p->next;
-				delete t;
-			} while (p != *begin);
+				cur_next = cur;
+				cur = cur->next;
+				delete cur_next;
+			} while (cur != *begin);
 		}
 		*begin = nullptr;
 	}

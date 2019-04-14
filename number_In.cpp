@@ -1,40 +1,38 @@
 #include <fstream>
 #include "number_atd.h"
 using namespace std;
-namespace simple_numbers {
-	// Сигнатуры требуемых внешних функций
-	void In(complex &c, ifstream &ist);
-	void In(rational &r, ifstream &ist);
-	void In(pol_coor &pc, ifstream &ist);
-	// Ввод параметров обобщенного числа из файла
-	number* In(ifstream &ifst)
+namespace simple_numbers 
+{
+	void in(complex &c, ifstream &ist);
+	void in(rational &r, ifstream &ist);
+	void in(pol_coor &pc, ifstream &ist);
+	number* in(ifstream &ifst)
 	{
 		number *num;
 		int k;
 		ifst >> k;
-
-		switch (k) {
-		case 1:
-			num = new number;
-			num->k = number::key::СOMPLEX;
-			In(num->c, ifst);
-			ifst >> num->ed_izm;
-			return num;
-		case 2:
-			num = new number;
-			num->k = number::key::RATIONAL;
-			In(num->r, ifst);
-			ifst >> num->ed_izm;
-			return num;
-		case 3:
-			num = new number;
-			num->k = number::key::POL_COOR;
-			In(num->pc, ifst);
-			ifst >> num->ed_izm;
-			return num;
-		default:
-			return nullptr;
+		switch (k) 
+		{	
+			case 1:
+				num = new number;
+				num->k = number::key::СOMPLEX;
+				in(num->c, ifst);
+				ifst >> num->measure;
+				return num;
+			case 2:
+				num = new number;
+				num->k = number::key::RATIONAL;
+				in(num->r, ifst);
+				ifst >> num->measure;
+				return num;
+			case 3:
+				num = new number;
+				num->k = number::key::POL_COOR;
+				in(num->pc, ifst);
+				ifst >> num->measure;
+				return num;
+			default:
+				return nullptr;
 		}
-
 	}
 } // end simple_numbers namespace

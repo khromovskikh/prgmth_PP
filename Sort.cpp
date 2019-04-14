@@ -1,26 +1,27 @@
 #include "number_atd.h"
 #include "container_atd.h"
-namespace simple_numbers {
-	// Сигнатуры требуемых функций
-	bool Compare_n(number *first, number *second);
-	// Сортировка содержимого контейнера 
-	container* Sort_c(container **con)
+namespace simple_numbers 
+{
+	bool compare_num(number *first, number *second);
+	container* sort_c(container **con)
 	{
-	
-			container *head = *con;
-			container *q, *out = nullptr, *p, *pr; //out - выход - сначала пуст
-			if (*con != nullptr){
-			do { //пока не конец входного списка
-				q = *con; *con = (*con)->next; //исключить очередной элемент
-				for (p = out, pr = nullptr; p != nullptr && Compare_n(q->num, p->num); pr = p, p = p->next);
+		container *head = *con;
+		container *nxt, *out = nullptr, *cur, *pr; //out - выход - сначала пуст
+		if (*con != nullptr)
+		{
+			do 
+			{ //пока не конец входного списка
+				nxt = *con; 
+				*con = (*con)->next; //исключить очередной элемент
+				for (cur = out, pr = nullptr; cur != nullptr && compare_num(nxt->num, cur->num); pr = cur, cur = cur->next);
 				//ищем, куда включить очередной элемент 
 				if (pr == nullptr) 
 				{ 
-					q->next = out; out = q;
+					nxt->next = out; out = nxt;
 				} //включение в начало
 				else
 				{
-					q->next = p; pr->next = q;
+					nxt->next = cur; pr->next = nxt;
 				} //или после предыдущего
 			} while (*con != head);
 			container *cur = out;
