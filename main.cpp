@@ -11,6 +11,7 @@ namespace simple_numbers
 	void out(container **begin, ofstream &ofst);
 	container* sort_c(container **con);
 	void filter_complex(container &con, ofstream &ofst);
+	void multi_method(container **begin, ofstream &ofst);
 }
 using namespace simple_numbers;
 int main(int argc, char* argv[]) 
@@ -103,6 +104,7 @@ int main(int argc, char* argv[])
 	in(&begin, ifst);
 	ofst << "Filled container. " << endl;
 	out(&begin, ofst);
+	multi_method(&begin, ofst);
 	begin = sort_c(&begin);
 	ofst << "After sort." << endl;
 	out(&begin, ofst);
